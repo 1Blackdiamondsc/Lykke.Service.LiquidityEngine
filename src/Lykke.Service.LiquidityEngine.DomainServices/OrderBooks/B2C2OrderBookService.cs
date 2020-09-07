@@ -50,11 +50,11 @@ namespace Lykke.Service.LiquidityEngine.DomainServices.OrderBooks
             if (sellLimitOrders.Length == 0 || buyLimitOrders.Length == 0)
                 return null;
 
-            decimal secondAsk = sellLimitOrders.Length == 2
+            decimal secondAsk = sellLimitOrders.Length > 1
                 ? sellLimitOrders[1].Price
                 : sellLimitOrders[0].Price;
 
-            decimal secondBid = buyLimitOrders.Length == 2
+            decimal secondBid = buyLimitOrders.Length > 1
                 ? buyLimitOrders[1].Price
                 : buyLimitOrders[0].Price;
 
