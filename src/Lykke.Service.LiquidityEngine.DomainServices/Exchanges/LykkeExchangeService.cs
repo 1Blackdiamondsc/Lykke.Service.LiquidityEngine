@@ -89,13 +89,13 @@ namespace Lykke.Service.LiquidityEngine.DomainServices.Exchanges
 
                 var finishedAt = DateTime.UtcNow;
 
-                _log.Info("_matchingEngineClient.PlaceMultiLimitOrderAsync() finished.", new
-                {
-                    AssetPairId = assetPairId,
-                    StartedAt = finishedAt,
-                    FinishedAt = finishedAt,
-                    Latency = (finishedAt - startedAt).TotalMilliseconds
-                });
+                //_log.Info("_matchingEngineClient.PlaceMultiLimitOrderAsync() finished.", new
+                //{
+                //    AssetPairId = assetPairId,
+                //    StartedAt = finishedAt,
+                //    FinishedAt = finishedAt,
+                //    Latency = (finishedAt - startedAt).TotalMilliseconds
+                //});
 
                 PrometheusMetrics.MarketMakingMeRequestLatency.Inc((finishedAt - startedAt).TotalMilliseconds);
             }
@@ -140,15 +140,15 @@ namespace Lykke.Service.LiquidityEngine.DomainServices.Exchanges
                     $"pair: {assetPairId}, orders: {string.Join(", ", ignoredOrdersByMe)}");
             }
 
-            var totalOrderPlacementFinishedAt = DateTime.UtcNow;
+            //var totalOrderPlacementFinishedAt = DateTime.UtcNow;
 
-            _log.Info("LykkeExchangeService.ApplyAsync() finished.", new
-            {
-                AssetPairId = assetPairId,
-                StartedAt = totalOrderPlacementStartedAt,
-                FinishedAt = totalOrderPlacementFinishedAt,
-                Latency = (totalOrderPlacementFinishedAt - totalOrderPlacementStartedAt).TotalMilliseconds
-            });
+            //_log.Info("LykkeExchangeService.ApplyAsync() finished.", new
+            //{
+            //    AssetPairId = assetPairId,
+            //    StartedAt = totalOrderPlacementStartedAt,
+            //    FinishedAt = totalOrderPlacementFinishedAt,
+            //    Latency = (totalOrderPlacementFinishedAt - totalOrderPlacementStartedAt).TotalMilliseconds
+            //});
 
             _log.InfoWithDetails("ME place multi limit order response", response);
         }
